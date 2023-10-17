@@ -34,7 +34,9 @@ const Wrap = styled.div`
 
 const ItemText = styled.div`
   padding-top: 15vh;
+  z-index: 10;
   text-align: center;
+  animation: animateDown infinite 1.5s;
 `;
 
 const Buttons = styled.div`
@@ -65,6 +67,7 @@ const LeftButton = styled.div`
   font-size: 12px;
   margin: 8px;
   cursor: pointer;
+  animation: animateDown infinite 1.5s;
 `;
 
 const RightButton = styled(LeftButton)`
