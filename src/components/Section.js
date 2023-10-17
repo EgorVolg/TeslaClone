@@ -38,13 +38,17 @@ const ItemText = styled.div`
 `;
 
 const Buttons = styled.div`
-display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const LeftButton = styled.div`
@@ -72,4 +76,5 @@ const RightButton = styled(LeftButton)`
 const DownArrow = styled.img`
   height: 40px;
   animation: animateDown infinite 1.5s;
+  margin-bottom: 20px;
 `;
