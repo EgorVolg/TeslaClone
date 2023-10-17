@@ -1,15 +1,14 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Home from "./components/Home";
+import { Header } from "./components/Header";
+import { Home } from "./components/Home";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
-      {/* <Header/> */}
-      <Home/>
+      <Header />
+      <Home />
     </div>
   );
 }
 
-export default App;
