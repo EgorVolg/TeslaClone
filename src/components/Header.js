@@ -2,9 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { selectCars } from "../features/car/carSlice";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [burgerStatus, setBurgerStatus] = useState(false);
+  const cars = useSelector(selectCars);
+
+  function oneClickCustomMenu() {
+    setBurgerStatus(true)
+  }
+
+  function onClickCustomClose() {
+    setBurgerStatus(false)
+  }
+
 
   return (
     <Container>
@@ -20,11 +32,11 @@ export const Header = () => {
       <RightMenu>
         <a href="#">Shop</a>
         <a href="#">Tesla Account</a>
-        <CustomMenu onClick={() => setBurgerStatus(true)} />
+        <CustomMenu onClick={oneClickCustomMenu} />
       </RightMenu>
-      <BurgerNav show={burgerStatus}>
+      <BurgerNav value={burgerStatus}>
         <CloseWrapper>
-          <CustomClose onClick={() => setBurgerStatus(false)} />
+          <CustomClose onClick={onClickCustomClose} />
         </CloseWrapper>
 
         <li>
@@ -115,7 +127,7 @@ const BurgerNav = styled.div`
   list-style: none;
   padding: 20px;
   transition: transform 0.2s ease-in;
-  transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+  transform: ${(props) => (props.value ? "translateX(0)" : "translateX(100%)")};
 
   li {
     padding: 15px;
