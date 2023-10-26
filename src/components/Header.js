@@ -10,13 +10,12 @@ export const Header = () => {
   const cars = useSelector(selectCars);
 
   function oneClickCustomMenu() {
-    setBurgerStatus(true)
+    setBurgerStatus(true);
   }
 
   function onClickCustomClose() {
-    setBurgerStatus(false)
+    setBurgerStatus(false);
   }
-
 
   return (
     <Container>
@@ -24,10 +23,12 @@ export const Header = () => {
         <img src="/images/logo.svg" />
       </a>
       <Menu>
-        <a href="#">Model S</a>
-        <a href="#">Model 3</a>
-        <a href="#">Model X</a>
-        <a href="#">Model Y</a>
+        {cars &&
+          cars.map((car, index) => (
+            <a key={index} href="#">
+              {car}
+            </a>
+          ))}
       </Menu>
       <RightMenu>
         <a href="#">Shop</a>
@@ -38,7 +39,12 @@ export const Header = () => {
         <CloseWrapper>
           <CustomClose onClick={onClickCustomClose} />
         </CloseWrapper>
-
+        {cars &&
+          cars.map((car, index) => (
+            <li key={index} href="#">
+              <a>{car}</a>
+            </li>
+          ))}
         <li>
           <a>Existing Inventory</a>
         </li>
@@ -53,15 +59,6 @@ export const Header = () => {
         </li>
         <li>
           <a>Roadaster</a>
-        </li>
-        <li>
-          <a>Existing Inventory</a>
-        </li>
-        <li>
-          <a>Existing Inventory</a>
-        </li>
-        <li>
-          <a>Existing Inventory</a>
         </li>
       </BurgerNav>
     </Container>
@@ -87,6 +84,9 @@ const Menu = styled.div`
   align-items: center;
   flex: 1;
   justify-content: center;
+
+
+
   a {
     font-weight: 600;
     text-transform: uppercase;
@@ -132,6 +132,7 @@ const BurgerNav = styled.div`
   li {
     padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
     a {
       font-weight: 600;
     }
