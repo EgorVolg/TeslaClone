@@ -84,9 +84,6 @@ const Menu = styled.div`
   align-items: center;
   flex: 1;
   justify-content: center;
-
-
-
   a {
     font-weight: 600;
     text-transform: uppercase;
@@ -98,7 +95,7 @@ const Menu = styled.div`
 const RightMenu = styled.div`
   display: flex;
   align-items: center;
-  a {
+  a { 
     font-weight: 600;
     text-transform: uppercase;
     margin-right: 10px;
@@ -132,7 +129,6 @@ const BurgerNav = styled.div`
   li {
     padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
     a {
       font-weight: 600;
     }
